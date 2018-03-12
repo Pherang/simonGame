@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="flexboxgrid-6.3.1/dist/flexboxgrid.css">
+    <link rel="stylesheet" href="simonGame.css">
+    <script src="jquery-3.2.1.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    
+</head>
+
+<body>  
+  <div id="room">  
+      
+      <div class="tableTop">
+          
+          <div id="simonControls" class="msgBoard">
+            <div class='gameLabel'>Simon</div>
+            <div class='btnRow'>
+              <div id='scoreOne'  class='scoreBoard'>- -</div>
+              <button id='startOne' class="startBtn">Start</button>
+              <button id='strictOne' class="strictBtn">Strict</button>
+            </div>
+          </div>
+          <div id='boardOne' class="gameBoard">
+            
+            <div id="green" class="boardSpot"></div>
+            <div id="red"    class="boardSpot"></div>
+            <div id="yellow" class="boardSpot"></div>
+            <div id="blue"  class="boardSpot"></div>
+        </div>
+      </div> <!-- end table top -->
+
+</div>
+
+<script src="simonGame.js"></script>
+</body>
+
+</html>
