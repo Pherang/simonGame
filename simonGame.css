@@ -76,11 +76,14 @@ body {
 
 #onOff {
   border-radius: 100%;
-  width: 25px;
-  height: 25px;
-  box-shadow: 0px 0px;
+  width: 24px;
+  height: 24px;
+  margin: 1px;
+  box-shadow: 0px 0px silver;
+  border-width: 0px;
   position: relative;
-  top: -2px;
+  top: 0px;
+  background-color: lightgray;
 }
 
 
@@ -90,7 +93,7 @@ body {
   height: 26px;
   background-color: red;
   border-radius: 15px;
-  margin-top: 5px;
+  margin-top: 3px;
   display: flex;
   transition: justify-items 1s;
 }

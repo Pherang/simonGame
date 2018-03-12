@@ -181,6 +181,7 @@ function powerOn () {
     strict.removeEventListener('click', enableStrict, false);
     powerSlider.classList.add('sliderOn');
   } else if (isOn === true) {
+    scoreBoard.textContent = '- -';
     isOn = false;
     start.removeEventListener('click', startGame, false);
     strict.addEventListener('click', enableStrict, false);
@@ -200,7 +201,7 @@ var powerButton = document.getElementById('onOff');
 var powerSlider = document.getElementById('onOffSlider');
 
 strict.addEventListener('click', enableStrict, false);
-powerButton.addEventListener('click', powerOn, false);
+powerSlider.addEventListener('click', powerOn, false);
 
 scoreBoard.textContent = '- -';
 window.onload = initGame;
