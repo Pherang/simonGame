@@ -56,19 +56,25 @@ function pressPad () {
     // check the pattern and then call the computers turn depending on the check result.
     
     if (!checkPatterns(playerPattern, computerPattern)) { 
-      console.log('You lose');
-      setTimeout(initGame,500);
-      return true;
+      console.log('You forgot the pattern');
+      if (strictEnabled) {
+        scoreBoard.textContent = '! !'
+        setTimeout( function () { scoreBoard.textContent = '- -';}, 800);
+        setTimeout(initGame, 800);
+        return true;
+      } else {
+        scoreBoard.textContent = '! !';
+        playerPattern = [];
+        setTimeout(function () { scoreBoard.textContent = score;}, 1000);
+        return true;
+      }
+      
     }
     if (checkPatterns(playerPattern, computerPattern)) { 
-      score++;
-      scoreBoard.textContent = score;
-      computerTurn();
+      setTimeout(computerTurn, 500);
       return true;
     }
-    
   }
-
 }
 
 
@@ -86,8 +92,10 @@ function replayPattern () {
 function enableStrict () {
   if (strictEnabled === false ) {
     strictEnabled = true;
+    strict.classList.add('strictEnabled');
   } else if (strictEnabled === true) {
     strictEnabled = false;
+    strict.classList.remove('strictEnabled');
   }
   console.log(strictEnabled);
 }
@@ -101,7 +109,8 @@ function playerTurn (padpressed) {
 
 // Computer presses a random pad and records the pad pressed.
 function computerTurn () {
-
+  score++;
+  scoreBoard.textContent = score;
   freezePads();
   var randomPress = Math.round(Math.random() * 10);
   if (randomPress < 5) {
@@ -141,9 +150,10 @@ function startGame () {
   // Passes 'this' so that the markSpot and markGrid functions knows which grid location to update.
   computerPattern = [];
   playerPattern = [];
-  scoreBoard.textContent = '- -'
+  score = 0;
+  scoreBoard.textContent = '- -';
   strict.removeEventListener('click', enableStrict, false);
-  computerTurn();
+  setTimeout(computerTurn, 300);
 }
 
 function unfreezePads () {
@@ -161,17 +171,36 @@ function freezePads () {
 }
 
 var scoreBoard = document.getElementById('scoreOne');
+var isOn = false;
+
+function powerOn () {
+
+  if (isOn === false) {
+    isOn = true;
+    start.addEventListener('click', startGame, false);
+    strict.removeEventListener('click', enableStrict, false);
+    powerSlider.classList.add('sliderOn');
+  } else if (isOn === true) {
+    isOn = false;
+    start.removeEventListener('click', startGame, false);
+    strict.addEventListener('click', enableStrict, false);
+    powerSlider.classList.remove('sliderOn');
+  }
+}
 
 function initGame () {
   score = 0;
-  scoreBoard.textContent = '- -';
+  
   strict.addEventListener('click', enableStrict, false);
 }
 
 var start = document.getElementById('startOne');
 var strict = document.getElementById('strictOne');
+var powerButton = document.getElementById('onOff');
+var powerSlider = document.getElementById('onOffSlider');
 
-start.addEventListener('click', startGame, false);
 strict.addEventListener('click', enableStrict, false);
+powerButton.addEventListener('click', powerOn, false);
 
+scoreBoard.textContent = '- -';
 window.onload = initGame;

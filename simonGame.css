@@ -54,12 +54,54 @@ body {
   
 }
 
+.basicBtn {
+  font-size: 14px;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  border-width: 1px;
+  box-shadow: 2px 2px grey;
+}
+
+.strictEnabled {
+  background-color: red;
+}
+
 .startBtn {
-  font-size: 16px;
+  background-color: lightseagreen;
+  color: white;
+  margin-right: 5px;
+  
+}
+
+#onOff {
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  box-shadow: 0px 0px;
+  position: relative;
+  top: -2px;
+}
+
+
+
+.slider {
+  width: 50px;
+  height: 26px;
+  background-color: red;
+  border-radius: 15px;
+  margin-top: 5px;
+  display: flex;
+  transition: justify-items 1s;
+}
+
+.sliderOn {
+  background-color: limegreen;
+  justify-content: flex-end;
 }
 
 .strictBtn {
-  font-size: 16px;
+  margin-left: 5px;
 }
 
 .scoreBoard {
@@ -71,6 +113,7 @@ body {
   width: 50px;
   text-align: center;
   justify-self: center;
+  border-radius: 3px;
 }
 
 .gameBoard {
@@ -104,7 +147,9 @@ body {
 .btnRow {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-self: flex-start;
+  justify-content: center;
 }
 
 .boardSpot#green {
@@ -179,8 +224,8 @@ body {
 
   #simonControls {
     border-width: 20px;
-    height: 200px;
-    width: 215px;
+    height: 205px;
+    width: 220px;
   }
 
   .tab {
@@ -193,4 +238,17 @@ body {
     font-size: 24px;
   }
 
+  .basicBtn {
+    font-size: 14px;
+    border-radius: 25%;
+    width: 55px;
+    border-width: 1px;
+    box-shadow: 2px 2px grey;
+  }
+
+  .gameLabel {
+    font-size: 28px;
+  }
+
+  
 }
