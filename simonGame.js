@@ -58,7 +58,7 @@ async function loopWait(ms) {
 }
 
 
-/* User presses simon pad.*/
+/* User's pad press gets added to the players array and a sound is played and a colour lit. */
 function pressPad () {
   playerPattern.push(this.id);
   
@@ -76,27 +76,34 @@ function pressPad () {
       //redBeep.load();
       redBeep.play();
       redBeep.currentTime = 0;
+      red.classList.add('redLight');
+      setTimeout( function () { red.classList.remove('redLight'); } , 500);
       break;
     case 'yellow':
 
       //yellowBeep.load();
       yellowBeep.play();
       yellowBeep.currentTime = 0;
+      yellow.classList.add('yellowLight');
+      setTimeout( function () { yellow.classList.remove('yellowLight'); } , 500);
       break;
     case 'blue':
       //blueBeep.load();
       blueBeep.play();
       blueBeep.currentTime = 0;
-      
+      blue.classList.add('blueLight');
+      setTimeout( function () { blue.classList.remove('blueLight'); } , 500);
       break;
   }
   
   
   console.log('Player pattern ' + playerPattern.toString());
   console.log('Computer pattern ' + computerPattern.toString());
+  
+  // If the player has pressed as many pads as the pattern then we need to check it.
   if (playerPattern.length === computerPattern.length) {
+
     // check the pattern and then call the computers turn depending on the check result.
-    
     if (!checkPatterns(playerPattern, computerPattern)) { 
       console.log('You forgot the pattern');
       if (strictEnabled) {
@@ -108,10 +115,12 @@ function pressPad () {
         scoreBoard.textContent = '! !';
         playerPattern = [];
         setTimeout(function () { scoreBoard.textContent = score;}, 1000);
+        replayPattern();
         return true;
       }
       
     }
+    // If the player matched the latest pattern advance to the next pattern.
     if (checkPatterns(playerPattern, computerPattern)) { 
       setTimeout(computerTurn, 500);
       return true;
