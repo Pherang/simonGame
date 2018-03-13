@@ -47,6 +47,17 @@ function checkPatterns (oneArray, anotherArray) {
 
 }
 
+function wait(ms) {
+  var waited = new Promise(function(resolve) {setTimeout(resolve, ms);});
+  return waited;
+}
+
+async function loopWait(ms) {
+    await wait(ms);
+    return true;
+}
+
+
 /* User presses simon pad.*/
 function pressPad () {
   playerPattern.push(this.id);
@@ -57,6 +68,8 @@ function pressPad () {
       //greenBeep.load();
       greenBeep.play();
       greenBeep.currentTime = 0;
+      green.classList.add('greenLight');
+      setTimeout( function () { green.classList.remove('greenLight'); } , 500);
       break;
     case 'red':
       
@@ -107,7 +120,7 @@ function pressPad () {
 }
 
 
-function replayPattern () {
+async function replayPattern () {
   
   function playButton (buttonName) {
     console.log('Hello ' + buttonName )
@@ -149,7 +162,10 @@ function replayPattern () {
     }
   }
   for (i=0; i < computerPattern.length; i++) {
-    setTimeout(playButton, 1000, computerPattern[i]);
+    // using the expression await inside an async function causes the calling function to pause
+    // the results of the awaited function
+    await wait(1000);
+    playButton(computerPattern[i]);
   }
 }
 
@@ -207,9 +223,6 @@ var red = document.getElementById('red');
 var yellow = document.getElementById('yellow');
 var blue = document.getElementById('blue');
 
-function trackPress () {
-  
-}
 
 function startGame () {
   // Passes 'this' so that the markSpot and markGrid functions knows which grid location to update.

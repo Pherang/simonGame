@@ -137,7 +137,7 @@ body {
   display: flex;
   align-items: center;
   color: rgb(62, 71, 80);
-  transition: background-color 0.1s ease-in-out, border-width 0.5s ease-in-out;
+  transition: background-color 0.1s ease-in-out border 0.1s ease-in;
 }
 
 .gameLabel {
@@ -164,7 +164,7 @@ body {
 }
 
 .redSpot {
-  background-color: darkred;
+  background-color: red;
   
   border-top-right-radius: 100%;
   margin-left: 15px;
@@ -172,37 +172,37 @@ body {
 }
 
 .yellowSpot {
-  background-color: darkkhaki;
+  background-color: yellow;
   border-bottom-left-radius: 100%;
   margin-right: 15px;
   margin-top: 15px;
 }
 
 .blueSpot {
-  background-color: rgb(48, 48, 180);
+  background-color: blue;
   border-bottom-right-radius: 100%;
   margin-left: 15px;
   margin-top: 15px;
 }
 
 .greenSpot:hover {
-  background-color: limegreen;
+  border: 2px solid white;
 }
 
 .redSpot:hover {
-  background-color: crimson;
+  border: 2px solid white;
 }
 
 .yellowSpot:hover {
-  background-color: yellow;  
+  border: 2px solid orange;
 }
 
 .blueSpot:hover {
-  background-color: skyblue;
+  border: 2px solid white;
 }
 
 .blueLight {
-  background-color: skyblue;
+  background-color: lightblue;
 }
 
 .greenLight {
@@ -210,15 +210,11 @@ body {
 }
 
 .redLight {
-  background-color: crimson;
+  background-color: lightcoral;
 }
 
 .yellowLight {
-  background-color: yellow;  
-}
-
-.blueLight {
-  background-color: skyblue;
+  background-color: rgb(255, 180, 0);  
 }
 
 @media only screen and (min-width: 600px) {
