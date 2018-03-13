@@ -50,6 +50,34 @@ function checkPatterns (oneArray, anotherArray) {
 /* User presses simon pad.*/
 function pressPad () {
   playerPattern.push(this.id);
+  
+  switch (this.id) {
+    case 'green':
+      
+      //greenBeep.load();
+      greenBeep.play();
+      greenBeep.currentTime = 0;
+      break;
+    case 'red':
+      
+      //redBeep.load();
+      redBeep.play();
+      redBeep.currentTime = 0;
+      break;
+    case 'yellow':
+
+      //yellowBeep.load();
+      yellowBeep.play();
+      yellowBeep.currentTime = 0;
+      break;
+    case 'blue':
+      //blueBeep.load();
+      blueBeep.play();
+      blueBeep.currentTime = 0;
+      break;
+  }
+  
+  
   console.log('Player pattern ' + playerPattern.toString());
   console.log('Computer pattern ' + computerPattern.toString());
   if (playerPattern.length === computerPattern.length) {
@@ -81,10 +109,41 @@ function pressPad () {
 function replayPattern () {
   
   function playButton (buttonName) {
-    console.log(buttonName);
+    console.log('Hello ' + buttonName )
+    switch (buttonName) {
+      case 'green':
+        
+        
+        greenBeep.play();
+        greenBeep.currentTime = 0;
+        console.log(greenBeep.currentTime);
+        break;
+      case 'red':
+        
+        //redBeep.load();
+        redBeep.play();
+        redBeep.currentTime = 0;
+        console.log(redBeep.currentTime);
+        break;
+      case 'yellow':
+        
+        //yellowBeep.load();
+        yellowBeep.play();
+        yellowBeep.currentTime = 0;
+        console.log(yellowBeep.currentTime);
+        break;
+      case 'blue':
+        
+        //blueBeep.load();
+        blueBeep.play();
+        blueBeep.currentTime = 0;
+        console.log(blueBeep.currentTime);
+        break;
+        
+    }
   }
   for (i=0; i < computerPattern.length; i++) {
-    setTimeout(playButton, 500, computerPattern[i]);
+    setTimeout(playButton, 2000, computerPattern[i]);
   }
 }
 
@@ -131,7 +190,7 @@ function computerTurn () {
   }
 
   console.log('Playing computer pattern');
-  replayPattern()
+  replayPattern();
   playerPattern = [];
   setTimeout(playerTurn, 500);
 }
@@ -200,8 +259,23 @@ var strict = document.getElementById('strictOne');
 var powerButton = document.getElementById('onOff');
 var powerSlider = document.getElementById('onOffSlider');
 
+var greenBeep = document.getElementById('greenSound');
+var redBeep = document.getElementById('redSound');
+var yellowBeep = document.getElementById('yellowSound');
+var blueBeep = document.getElementById('blueSound');
+
+blueBeep.load();
+console.log(blueBeep.duration);
+
 strict.addEventListener('click', enableStrict, false);
 powerSlider.addEventListener('click', powerOn, false);
 
 scoreBoard.textContent = '- -';
 window.onload = initGame;
+
+/* audio sources for beeps
+  https://s3.amazonaws.com/freecodecamp/simonSound1.mp3,
+  https://s3.amazonaws.com/freecodecamp/simonSound2.mp3,
+  https://s3.amazonaws.com/freecodecamp/simonSound3.mp3,
+  https://s3.amazonaws.com/freecodecamp/simonSound4.mp3
+*/

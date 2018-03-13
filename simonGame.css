@@ -74,7 +74,7 @@ body {
   
 }
 
-#onOff {
+#onOff {  
   border-radius: 100%;
   width: 24px;
   height: 24px;
@@ -156,47 +156,49 @@ body {
 }
 
 .boardSpot#green {
-  background-color: limegreen;
+  background-color: green;
+  
   border-top-left-radius: 100%;
   margin-right: 15px;
   margin-bottom: 15px;
 }
 
 .boardSpot#red {
-  background-color: crimson;
+  background-color: darkred;
+  
   border-top-right-radius: 100%;
   margin-left: 15px;
   margin-bottom: 15px;
 }
 
 .boardSpot#yellow {
-  background-color: yellow;
+  background-color: darkkhaki;
   border-bottom-left-radius: 100%;
   margin-right: 15px;
   margin-top: 15px;
 }
 
 .boardSpot#blue {
-  background-color: skyblue;
+  background-color: rgb(48, 48, 180);
   border-bottom-right-radius: 100%;
   margin-left: 15px;
   margin-top: 15px;
 }
 
 .boardSpot#green:hover {
-  background-color: green;
+  background-color: limegreen;
 }
 
 .boardSpot#red:hover {
-  background-color: darkred;
+  background-color: crimson;
 }
 
 .boardSpot#yellow:hover {
-  background-color: darkkhaki;
+  background-color: yellow;  
 }
 
 .boardSpot#blue:hover {
-  background-color: rgb(48, 48, 180);
+  background-color: skyblue
 }
 
 @media only screen and (min-width: 600px) {
@@ -252,6 +254,5 @@ body {
   .gameLabel {
     font-size: 28px;
   }
-
   
 }
