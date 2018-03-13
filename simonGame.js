@@ -74,6 +74,7 @@ function pressPad () {
       //blueBeep.load();
       blueBeep.play();
       blueBeep.currentTime = 0;
+      
       break;
   }
   
@@ -112,11 +113,10 @@ function replayPattern () {
     console.log('Hello ' + buttonName )
     switch (buttonName) {
       case 'green':
-        
-        
         greenBeep.play();
         greenBeep.currentTime = 0;
-        console.log(greenBeep.currentTime);
+        green.classList.add('greenLight');
+      setTimeout( function () { green.classList.remove('greenLight'); } , 500);
         break;
       case 'red':
         
@@ -124,6 +124,8 @@ function replayPattern () {
         redBeep.play();
         redBeep.currentTime = 0;
         console.log(redBeep.currentTime);
+        red.classList.add('redLight');
+        setTimeout( function () { red.classList.remove('redLight'); } , 500);
         break;
       case 'yellow':
         
@@ -131,6 +133,8 @@ function replayPattern () {
         yellowBeep.play();
         yellowBeep.currentTime = 0;
         console.log(yellowBeep.currentTime);
+        yellow.classList.add('yellowLight');
+        setTimeout( function () { yellow.classList.remove('yellowLight'); } , 500);
         break;
       case 'blue':
         
@@ -138,12 +142,14 @@ function replayPattern () {
         blueBeep.play();
         blueBeep.currentTime = 0;
         console.log(blueBeep.currentTime);
+        blue.classList.add('blueLight');
+        setTimeout( function () { blue.classList.remove('blueLight'); } , 500);
         break;
         
     }
   }
   for (i=0; i < computerPattern.length; i++) {
-    setTimeout(playButton, 2000, computerPattern[i]);
+    setTimeout(playButton, 1000, computerPattern[i]);
   }
 }
 

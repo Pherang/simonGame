@@ -155,7 +155,7 @@ body {
   justify-content: center;
 }
 
-.boardSpot#green {
+.greenSpot {
   background-color: green;
   
   border-top-left-radius: 100%;
@@ -163,7 +163,7 @@ body {
   margin-bottom: 15px;
 }
 
-.boardSpot#red {
+.redSpot {
   background-color: darkred;
   
   border-top-right-radius: 100%;
@@ -171,34 +171,54 @@ body {
   margin-bottom: 15px;
 }
 
-.boardSpot#yellow {
+.yellowSpot {
   background-color: darkkhaki;
   border-bottom-left-radius: 100%;
   margin-right: 15px;
   margin-top: 15px;
 }
 
-.boardSpot#blue {
+.blueSpot {
   background-color: rgb(48, 48, 180);
   border-bottom-right-radius: 100%;
   margin-left: 15px;
   margin-top: 15px;
 }
 
-.boardSpot#green:hover {
+.greenSpot:hover {
   background-color: limegreen;
 }
 
-.boardSpot#red:hover {
+.redSpot:hover {
   background-color: crimson;
 }
 
-.boardSpot#yellow:hover {
+.yellowSpot:hover {
   background-color: yellow;  
 }
 
-.boardSpot#blue:hover {
-  background-color: skyblue
+.blueSpot:hover {
+  background-color: skyblue;
+}
+
+.blueLight {
+  background-color: skyblue;
+}
+
+.greenLight {
+  background-color: limegreen;
+}
+
+.redLight {
+  background-color: crimson;
+}
+
+.yellowLight {
+  background-color: yellow;  
+}
+
+.blueLight {
+  background-color: skyblue;
 }
 
 @media only screen and (min-width: 600px) {
