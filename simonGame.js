@@ -65,7 +65,7 @@ function pressPad () {
   switch (this.id) {
     case 'green':
       
-      //greenBeep.load();
+      greenBeep.load();
       greenBeep.play();
       greenBeep.currentTime = 0;
       green.classList.add('greenLight');
@@ -73,7 +73,7 @@ function pressPad () {
       break;
     case 'red':
       
-      //redBeep.load();
+      redBeep.load();
       redBeep.play();
       redBeep.currentTime = 0;
       red.classList.add('redLight');
@@ -81,14 +81,14 @@ function pressPad () {
       break;
     case 'yellow':
 
-      //yellowBeep.load();
+      yellowBeep.load();
       yellowBeep.play();
       yellowBeep.currentTime = 0;
       yellow.classList.add('yellowLight');
       setTimeout( function () { yellow.classList.remove('yellowLight'); } , 500);
       break;
     case 'blue':
-      //blueBeep.load();
+      blueBeep.load();
       blueBeep.play();
       blueBeep.currentTime = 0;
       blue.classList.add('blueLight');
@@ -135,14 +135,14 @@ async function replayPattern () {
     console.log('Hello ' + buttonName )
     switch (buttonName) {
       case 'green':
+        greenBeep.load();
         greenBeep.play();
         greenBeep.currentTime = 0;
         green.classList.add('greenLight');
       setTimeout( function () { green.classList.remove('greenLight'); } , 500);
         break;
       case 'red':
-        
-        //redBeep.load();
+        redBeep.load();
         redBeep.play();
         redBeep.currentTime = 0;
         console.log(redBeep.currentTime);
@@ -150,8 +150,7 @@ async function replayPattern () {
         setTimeout( function () { red.classList.remove('redLight'); } , 500);
         break;
       case 'yellow':
-        
-        //yellowBeep.load();
+        yellowBeep.load();
         yellowBeep.play();
         yellowBeep.currentTime = 0;
         console.log(yellowBeep.currentTime);
@@ -159,8 +158,7 @@ async function replayPattern () {
         setTimeout( function () { yellow.classList.remove('yellowLight'); } , 500);
         break;
       case 'blue':
-        
-        //blueBeep.load();
+        blueBeep.load();
         blueBeep.play();
         blueBeep.currentTime = 0;
         console.log(blueBeep.currentTime);
@@ -201,6 +199,12 @@ function playerTurn (padpressed) {
 function computerTurn () {
   score++;
   scoreBoard.textContent = score;
+  if (score === 21) {
+    scoreBoard.textContent = 'WIN';
+    freezePads();
+    return true;
+  }
+
   freezePads();
   var randomPress = Math.round(Math.random() * 10);
   if (randomPress < 5) {
