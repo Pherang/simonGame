@@ -3,6 +3,8 @@
 The game of Simon from the 1980s. It is the last project from the FreeCodeCamp front end course.
 It was completed in half the time it took for the Tic Tac Toe game. Lots learned with that project.
 
+Play at https://codepen.io/Pherang/pen/dmGeoZ
+
 A fun challenge with this project was getting the the computer to replay the sequence of button presses in order. I tried using setTimeout in a loop but because the computer queues up each call so quickly they all execute at the same time once the time has passed.
 To get past this I changed the replay function to an **async function** which allowed me to use the **await** expression in side of it to properly pause the replay function's execution.
 
