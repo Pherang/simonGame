@@ -8,4 +8,4 @@ To get past this I changed the replay function to an **async function** which al
 
 Another new thing I learned was how to use the **\<audio\>** element. The fun with this one was figuring out how to get the sound for the buttons to play once they were already played. I tried things like setting the currentTime property of the audio file to 0 but that didn't seem to work. The only thing that seemed to work was to use the load() method of the audio element to reset and reload it.
   
-  
+One small final thing I learned was how to get the pads to flash when played or pressed. This involved adding a class to the button element with a lighter colour, waiting about 500ms, and then removing that same class.
